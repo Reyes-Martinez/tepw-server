@@ -1,22 +1,22 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../database/config");
-//* sequelize.define("nombre de la tabla en singular",{atributos de la tabla},{configuracione opcionales }
-const User = sequelize.define(
-  "user",
+const { User } = require("./user");
+const User_address = sequelize.define(
+  "user_address",
   {
-    username: {
+    user_id: {
+      type: DataTypes.INTEGER,
+    },
+    address: {
       type: DataTypes.STRING,
     },
-    password: {
+    city: {
       type: DataTypes.STRING,
     },
-    first_name: {
+    postal_code: {
       type: DataTypes.STRING,
     },
-    last_name: {
-      type: DataTypes.STRING,
-    },
-    telephone: {
+    country: {
       type: DataTypes.STRING,
     },
   },
@@ -27,4 +27,5 @@ const User = sequelize.define(
     freezeTableName: true,
   }
 );
-module.exports = User;
+
+module.exports = User_address;

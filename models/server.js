@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { sequelize } = require("../database/config");
-
+require("../database/associations");
 class Server {
   constructor() {
     this.app = express();
@@ -12,6 +12,7 @@ class Server {
 
     //*Api de role
     this.rolePath = "/api/role";
+    this.userPath = "/api/user";
 
     //*Middlerware
     this.Middlerware();
@@ -41,6 +42,7 @@ class Server {
 
   routes() {
     this.app.use(this.rolePath, require("../routes/role"));
+    this.app.use(this.userPath, require("../routes/user"));
   }
   //*Metodo listen que iniciara el servidor
   listen() {
