@@ -19,6 +19,9 @@ const User = sequelize.define(
     telephone: {
       type: DataTypes.STRING,
     },
+    email: {
+      type: DataTypes.STRING,
+    },
   },
   {
     //* omitir campos de created_at y update_at

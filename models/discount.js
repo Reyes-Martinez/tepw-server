@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../database/config");
-const { User } = require("./user");
 const Discount = sequelize.define(
   "discount",
   {
@@ -13,7 +12,6 @@ const Discount = sequelize.define(
     active: {
       type: DataTypes.TINYINT,
     },
-   
   },
   {
     //* omitir campos de created_at y update_at

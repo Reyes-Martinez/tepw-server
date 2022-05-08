@@ -8,7 +8,7 @@ const Product = connectDb.define("Product", {
   decription: {
     type: DataTypes.STRING,
   },
-  SKU: {
+  image: {
     type: DataTypes.STRING,
   },
   category: {

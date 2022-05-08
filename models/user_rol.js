@@ -1,15 +1,14 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../database/config");
-const { User } = require("./user");
 const User_rol = sequelize.define(
   "user_rol",
   {
-    rol_id: {
+    role_id: {
       type: DataTypes.INTEGER,
     },
     user_id: {
       type: DataTypes.INTEGER,
-    }
+    },
   },
   {
     //* omitir campos de created_at y update_at

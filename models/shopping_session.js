@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../database/config");
-const { User } = require("./user");
 const Shopping_session = sequelize.define(
   "shopping_session",
   {
@@ -10,7 +9,6 @@ const Shopping_session = sequelize.define(
     total: {
       type: DataTypes.DECIMAL,
     },
-    
   },
   {
     //* omitir campos de created_at y update_at
