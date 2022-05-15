@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { validateJWT } = require("../middleware/validar-jwt");
 const {
   userGet,
   userPost,
@@ -17,7 +18,7 @@ const {
 const router = Router();
 
 //*usuario
-router.get("/", userGet);
+router.get("/", validateJWT, userGet);
 router.get("/:id", userGetById);
 router.post("/singup", userPost);
 router.put("/:id", userPut);

@@ -13,7 +13,7 @@ class Server {
     //*Api de role
     this.rolePath = "/api/role";
     this.userPath = "/api/user";
-
+    this.authPath = "/api/auth";
     //*Middlerware
     this.Middlerware();
 
@@ -41,6 +41,7 @@ class Server {
   }
 
   routes() {
+    this.app.use(this.authPath, require("../routes/auth"));
     this.app.use(this.rolePath, require("../routes/role"));
     this.app.use(this.userPath, require("../routes/user"));
   }
