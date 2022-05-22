@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { request, response } = require("express");
 const validateJWT = (req = request, res = response, next) => {
-  const token = req.header("jwt-token");
-  console.log(token);
+  const token = req.header("jwt_token");
   if (!token) {
     return res.status(401).json({ msg: "token not found" });
   }

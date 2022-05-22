@@ -3,7 +3,7 @@ const { sequelize } = require("../database/config");
 const Cart_item = sequelize.define(
   "cart_item",
   {
-    session_id: {
+    user_id: {
       type: DataTypes.INTEGER,
     },
     product_id: {
