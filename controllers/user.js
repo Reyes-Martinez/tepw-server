@@ -27,10 +27,13 @@ const userPost = async (req = request, res = response) => {
     const result = await newUser.save({ transaction: t });
     newUser_rol.role_id = id_role;
     newUser_rol.user_id = result.id;
+    console.log(newUser_rol.role_id);
     await newUser_rol.save({ transaction: t });
-    if (newUser_rol.role_id == 3) {
-      newUser_rol.role_id = 2;
-      await newUser_rol.save({ transaction: t });
+    if (newUser_rol.role_id == "3") {
+      const newUser_rol2 = new User_rol();
+      newUser_rol2.user_id = result.id;
+      newUser_rol2.role_id = 2;
+      await newUser_rol2.save({ transaction: t });
     }
     await sendEmail(newUser.email, "you are registered in tepw", "register");
     await t.commit();

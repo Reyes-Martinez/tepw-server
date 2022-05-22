@@ -6,6 +6,9 @@ const Product_category = sequelize.define(
     name: {
       type: DataTypes.STRING,
     },
+    image: {
+      type: DataTypes.STRING,
+    },
     description: {
       type: DataTypes.STRING,
     },

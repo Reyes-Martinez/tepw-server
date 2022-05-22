@@ -1,0 +1,41 @@
+const { response, request } = require("express");
+const { QueryTypes, Op } = require("sequelize");
+
+const { sequelize } = require("../database/config");
+const Product = require("../models/product");
+
+const productGet = async (req = request, res = response) => {
+  const products = await Product.findAll();
+  res.json(products);
+};
+const productGetByName = async (req = request, res = response) => {
+  const name = req.params.name;
+  const product = await Product.findAll({
+    where: {
+      name: {
+        [Op.like]: "%" + name + "%",
+      },
+    },
+  });
+
+  res.json(product);
+};
+
+const productPost = async (req = request, res = response) => {
+  const product = req.body;
+  const newProduct = new Product(product);
+  await newProduct.save();
+  res.json(newProduct);
+};
+
+const productPut = async (req = request, res = response) => {};
+
+const productDelete = async (req = request, res = response) => {};
+
+module.exports = {
+  productGet,
+  productDelete,
+  productPost,
+  productPut,
+  productGetByName,
+};

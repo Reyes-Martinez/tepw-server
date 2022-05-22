@@ -14,6 +14,9 @@ class Server {
     this.rolePath = "/api/role";
     this.userPath = "/api/user";
     this.authPath = "/api/auth";
+    this.prductPath = "/api/product";
+    this.categoryPath = "/api/category";
+
     //*Middlerware
     this.Middlerware();
 
@@ -44,6 +47,8 @@ class Server {
     this.app.use(this.authPath, require("../routes/auth"));
     this.app.use(this.rolePath, require("../routes/role"));
     this.app.use(this.userPath, require("../routes/user"));
+    this.app.use(this.prductPath, require("../routes/products"));
+    this.app.use(this.categoryPath, require("../routes/category"));
   }
   //*Metodo listen que iniciara el servidor
   listen() {
