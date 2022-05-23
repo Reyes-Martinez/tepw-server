@@ -7,7 +7,8 @@ const login = async (req = request, res = response) => {
   const { email, password } = req.body;
   console.log(email, password);
   //verificar email exisre
-  const usuario = await User.findOne({ email, include: "user_rol" });
+  //console.log(usuario);
+  const usuario = await User.findOne({ where: { email }, include: "user_rol" });
   const [user_rol] = usuario.user_rol;
   const { role_id } = user_rol;
   if (!usuario) {
