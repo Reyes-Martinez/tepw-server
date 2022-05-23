@@ -51,7 +51,7 @@ const userPut = async (req = request, res = response) => {
   if (user.password) {
     user.password = encryptPassword(user.password);
   }
-  User.update(user, { where: { id } });
+  await User.update(user, { where: { id } });
   res.json({ msg: "Updated is success" });
 };
 

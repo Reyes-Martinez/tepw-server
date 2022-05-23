@@ -28,7 +28,13 @@ const productPost = async (req = request, res = response) => {
   res.json(newProduct);
 };
 
-const productPut = async (req = request, res = response) => {};
+const productPut = async (req = request, res = response) => {
+  const id = req.params.id;
+  const product = req.body;
+  await Product.update(product, { where: { id } });
+  console.log(product, id);
+  res.json(product);
+};
 
 const productDelete = async (req = request, res = response) => {};
 

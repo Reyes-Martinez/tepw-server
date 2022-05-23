@@ -37,5 +37,11 @@ const cart_itemPost = async (req = request, res = response) => {
   await newCart_item.save();
   res.json(newCart_item);
 };
+const cart_itemDelete = async (req = request, res = response) => {
+  const { id } = req.params;
+  console.log(id);
+  await Cart_item.destroy({ where: { id } });
+  res.status(200).json({ msj: "destroy item" });
+};
 
-module.exports = { cart_itemGet, cart_itemPost };
+module.exports = { cart_itemGet, cart_itemPost, cart_itemDelete };
