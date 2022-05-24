@@ -13,7 +13,7 @@ const User_payment = sequelize.define(
       type: DataTypes.STRING,
     },
     account_no: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     month: {
       type: DataTypes.STRING,

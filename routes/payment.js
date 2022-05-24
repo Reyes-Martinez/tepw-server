@@ -2,11 +2,13 @@ const { Router } = require("express");
 const {
   paymentGet,
   paymentPost,
+  add_payment_metodGet,
   add_payment_metodPost,
 } = require("../controllers/payment");
 const router = Router();
 
-router.get("/all", paymentGet);
-router.post("/add", paymentPost);
-router.post("/all/metod/:id", add_payment_metodPost);
+router.get("/order/all", paymentGet);
+router.get("/all/metod", add_payment_metodGet);
+router.post("/order/create", paymentPost);
+router.post("/add/metod/:id", add_payment_metodPost);
 module.exports = router;
