@@ -9,14 +9,20 @@ const User_payment = sequelize.define(
     payment_type: {
       type: DataTypes.STRING,
     },
-    provider: {
+    name: {
       type: DataTypes.STRING,
     },
     account_no: {
       type: DataTypes.INTEGER,
     },
-    expiry: {
-      type: DataTypes.DATE,
+    month: {
+      type: DataTypes.STRING,
+    },
+    ccv: {
+      type: DataTypes.STRING,
+    },
+    year: {
+      type: DataTypes.STRING,
     },
   },
   {

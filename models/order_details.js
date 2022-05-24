@@ -9,7 +9,7 @@ const Order_details = sequelize.define(
     total: {
       type: DataTypes.DECIMAL,
     },
-    payment_id: {
+    user_payment: {
       type: DataTypes.INTEGER,
     },
   },

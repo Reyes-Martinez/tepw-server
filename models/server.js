@@ -17,7 +17,7 @@ class Server {
     this.prductPath = "/api/product";
     this.categoryPath = "/api/category";
     this.cartPath = "/api/cart";
-
+    this.paymentPath = "/api/payment";
     //*Middlerware
     this.Middlerware();
 
@@ -51,6 +51,7 @@ class Server {
     this.app.use(this.prductPath, require("../routes/products"));
     this.app.use(this.categoryPath, require("../routes/category"));
     this.app.use(this.cartPath, require("../routes/cart_item"));
+    this.app.use(this.paymentPath, require("../routes/payment"));
   }
   //*Metodo listen que iniciara el servidor
   listen() {

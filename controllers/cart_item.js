@@ -10,7 +10,7 @@ const cart_itemGet = async (req = request, res = response) => {
   let totalCost = 0;
   for (const item of cart_items) {
     product = await Product.findOne({ where: { id: item.product_id } });
-    (totalCost += parseFloat(product.price)), parseFloat(item.quantity);
+    totalCost += parseFloat(product.price) * parseFloat(item.quantity);
     cartItems.push({
       id: item.id,
       user_id: item.user_id,
@@ -28,7 +28,8 @@ const cart_itemGet = async (req = request, res = response) => {
       },
     });
   }
-  res.json({ cartItems, totalCost });
+  console.log(totalCost);
+  res.status(200).json({ cartItems, totalCost });
 };
 
 const cart_itemPost = async (req = request, res = response) => {
